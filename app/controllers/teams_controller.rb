@@ -48,8 +48,12 @@ class TeamsController < ApplicationController
   end
 
   def assign_owner
+    # Teamのオーナーが変更されたら、新しくオーナーになったユーザーに通知メールが飛ぶ
     @team.update(owner_id: params[:owner_id])
-    redirect_to team_path, notice: 'リーダー権限を付与しました！'
+
+    @user = User.find(@team.owner_id)
+    OwnerChangeMailer.owner_change_mail(@user).deliver
+    redirect_to team_path, notice: 'Successfully updated the owner!'
   end
 
   private
