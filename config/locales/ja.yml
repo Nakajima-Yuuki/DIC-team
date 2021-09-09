@@ -207,6 +207,7 @@ ja:
     messages:
       create_agenda: 'アジェンダ作成に成功しました！'
       create_article: '記事作成に成功しました！'
+      delete_agenda: 'アジェンダ削除に成功しました！'
       update_article: '記事更新に成功しました！'
       assigned: 'アサインしました！'
       failed_to_assign: 'アサインに失敗しました！'
